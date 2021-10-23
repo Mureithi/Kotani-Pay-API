@@ -50,3 +50,33 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
   { "status": 400, "desc": "invalid phoneNumber" }
 ```
 ---
+
+### Reset User Access PIN:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/user/resetPin:
+```javascript
+curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/user/resetPin'
+--header 'Authorization: Bearer {{accessToken}}'
+--header 'Content-Type: application/json'
+--data-raw '{
+    "phoneNumber": {{phoneNumber}},
+    "newUserPin": {{newUserPin}}
+}'
+```
+#### RESPONSE
+---
+<dl><dt>success</dt></dl>
+
+```json5  
+   { "status": 201, "desc": {{userMSISDN}} "Kotani Pay PIN updated successfully" } 
+```
+
+<dl><dt>fail</dt></dl>
+
+```json5 
+  { "status": 400, "desc": "user exists", "userId": {{userID}} }
+  { "status": 400, "desc": "invalid phoneNumber" }
+  { "status": 400, "desc": "User does not exist" }
+  { "status": 400, "desc": "PIN must be atleast 4 characters"}
+  { "status": 400, "desc": "invalid information provided" }
+```
+---

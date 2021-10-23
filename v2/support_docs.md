@@ -1,5 +1,5 @@
 ### Get Access Token:
-https://europe-west3-kotanimac.cloudfunctions.net/api_v1/api/login:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/api/login:
 ```javascript
 curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v1/api/login'
 --header 'Content-Type: application/json'
@@ -26,7 +26,7 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ```
 ---
 ### Create a new user account:
-https://europe-west3-kotanimac.cloudfunctions.net/api_v1/kyc/user/create:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/kyc/user/create:
 ```javascript
 curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v1/kyc/user/create'
 --header 'Authorization: Bearer {{accessToken}}'

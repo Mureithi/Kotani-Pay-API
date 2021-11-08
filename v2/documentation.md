@@ -204,13 +204,13 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ```
 https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo:
 ```javascript
-curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/withdraw/momo'
+curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo'
 --header 'Authorization: Bearer {{accessToken}}'
 --header 'Content-Type: application/json'
 --data-raw '{
     "phoneNumber": {{phoneNumber}},
-    "depositAmount": {{amount}},
-    "depositCurrency": {{currencySymbol}}
+    "amount": {{amount}},
+    "currency": {{currencySymbol}}
 }'
 ```
 #### RESPONSE

@@ -202,7 +202,33 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 
 ### User funds-deposit:
 ```
-TBU
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo:
+```javascript
+curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/withdraw/momo'
+--header 'Authorization: Bearer {{accessToken}}'
+--header 'Content-Type: application/json'
+--data-raw '{
+    "phoneNumber": {{phoneNumber}},
+    "depositAmount": {{amount}},
+    "depositCurrency": {{currencySymbol}}
+}'
+```
+#### RESPONSE
+---
+<dl><dt>success</dt></dl>
+
+```json5  
+   { status: 201, phoneNumber: `${phoneNumber}`,  deposited: { currency: `${localCurrency}`, amount: `${localCurrencyAmount}`}, txnHash: `${transactionHash}`, depositReference: `momoRefId` } 
+```
+
+<dl><dt>fail</dt></dl>
+
+```json5 
+  { status: 400, phoneNumber: `${withdrawMSISDN}`, desc: `invalid phoneNumber`}
+  { status: 400, desc: "user account does not exist" }
+  { status: 400, desc: "user account is not verified" } 
+```
+---
 ```
 ---
 

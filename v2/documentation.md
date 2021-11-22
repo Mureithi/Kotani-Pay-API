@@ -147,7 +147,7 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ### RIO-UBI isBeneficiary:
 https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/checkIfBeneficiary:
 ```javascript
-curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/claimfunds'
+curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/checkIfBeneficiary'
 --header 'Authorization: Bearer {{accessToken}}'
 --header 'Content-Type: application/json'
 --data-raw '{

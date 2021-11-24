@@ -151,7 +151,8 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 --header 'Authorization: Bearer {{accessToken}}'
 --header 'Content-Type: application/json'
 --data-raw '{
-    "phoneNumber" : {{phoneNumber}}
+    "phoneNumber" : {{phoneNumber}},
+    "programId" : {{programId}}
 }'
 ```
 #### RESPONSE
@@ -178,7 +179,8 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 --header 'Authorization: Bearer {{accessToken}}'
 --header 'Content-Type: application/json'
 --data-raw '{
-    "phoneNumber" : {{phoneNumber}}
+    "phoneNumber" : {{phoneNumber}},
+    "programId" : {{programId}}
 }'
 ```
 #### RESPONSE

@@ -52,7 +52,7 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ---
 
 ### Set new user KYC details:
-https://europe-west3-kotanimac.cloudfunctions.net/api_v2/kyc/user/setDetails:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/programs/kyc/updateUser:
 ```javascript
 curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/kyc/user/setDetails'
 --header 'Authorization: Bearer {{accessToken}}' 
@@ -63,6 +63,7 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
     documentNumber: {{documentNumber}},
     fullname: {{firstname lastname}},
     dateofbirth: {{dateofbirth}}, // YYYY-MM-DD
+    programName: {{programName}}, // CANNOT BE EMPTY
     email: {{email}}
 }'
 ```

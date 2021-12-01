@@ -172,6 +172,35 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ```
 ---
 
+### UBI addBeneficiary:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/setBeneficiary:
+```javascript
+curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/setBeneficiary'
+--header 'Authorization: Bearer {{accessToken}}'
+--header 'Content-Type: application/json'
+--data-raw '{
+    "phoneNumber" : {{phoneNumber}},
+    "programId" : {{programId}}
+}'
+```
+#### RESPONSE
+---
+<dl><dt>success</dt></dl>
+
+```json5  
+   {status: 201, desc: `User added as a beneficiary`, address: _beneficiaryAddress, txhash: transactionHash} 
+```
+
+<dl><dt>fail</dt></dl>
+
+```json5 
+  { status: 400, "desc" : `${senderMSISDN} is not a valid phoneNumber`}
+  {status: 400,  "desc": "user account is not verified" }  
+  {status: 400, "desc": `User is already a beneficiary`}
+  {status: 400, desc: `Invalid request` }
+```
+---
+
 
 ### RIO-UBI Claim:
 https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/ubi/claimfunds:

@@ -12,7 +12,7 @@ const bcrypt = require('bcryptjs');
 const lib = require('./libraries');
 const {generateAccessToken, authenticateToken} = require('./libraries');
 const moment = require('moment');
-var { getTxidUrl, getPinFromUser, createcypher, sendMessage, isValidPhoneNumber, validateMSISDN } = require('./utilities');
+var { getTxidUrl, getPinFromUser, createcypher, sendMessage, isValidPhoneNumber, validateMSISDN } = require('./libraries/utilities');
 
 //GLOBAL ENV VARIABLES
 const iv = functions.config().env.crypto_iv.key;
@@ -22,7 +22,7 @@ const signerMSISDN =  functions.config().env.ubiManager.msisdn;
 const {  weiToDecimal, sendcUSD, checkIfBeneficiary, addBeneficiary, checkUbiScBalance, sendUBIClaim, buyCelo, getContractKit,  getLatestBlock, validateWithdrawHash } = require('./celokit');
 
 const kit = getContractKit();
-const jenga = require('./jengakit');
+const jenga = require('./libraries/jengakit');
 const { invalid } = require('moment');
 
 

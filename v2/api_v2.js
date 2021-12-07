@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const firestore = admin.firestore();
-const { getUserId, getUserDetails, getTargetCountry, getLocalCurrencyAmount, getTargetEscrow, number_format, checkIfSenderExists, processApiWithdraw, setProcessedTransaction, checkisUserKyced, addUserKycToDB, getExchangeRate  } = require("./libraries");
+const { getUserId, getUserDetails, getTargetCountry, getLocalCurrencyAmount, getTargetEscrow, number_format, checkIfSenderExists, processApiWithdraw, setProcessedTransaction, checkisUserKyced, addUserKycToDB, getExchangeRate  } = require("./libraries/libraries");
 // Express and CORS middleware init
 const express = require('express');
  const cors = require('cors');
@@ -9,7 +9,7 @@ const express = require('express');
  const bearerToken = require('express-bearer-token');
 const bcrypt = require('bcryptjs');
  const api_v2 = express().use(cors({ origin: true }), bearerToken());
-const lib = require('./libraries');
+const lib = require('./libraries/libraries');
 const {generateAccessToken, authenticateToken} = require('./libraries');
 const moment = require('moment');
 var { getTxidUrl, getPinFromUser, createcypher, sendMessage, isValidPhoneNumber, validateMSISDN } = require('./libraries/utilities');
@@ -19,7 +19,7 @@ const iv = functions.config().env.crypto_iv.key;
 const escrowMSISDN = functions.config().env.escrow.msisdn;
 const signerMSISDN =  functions.config().env.ubiManager.msisdn;
 
-const {  weiToDecimal, sendcUSD, checkIfBeneficiary, addBeneficiary, checkUbiScBalance, sendUBIClaim, buyCelo, getContractKit,  getLatestBlock, validateWithdrawHash } = require('./celokit');
+const {  weiToDecimal, sendcUSD, checkIfBeneficiary, addBeneficiary, checkUbiScBalance, sendUBIClaim, buyCelo, getContractKit,  getLatestBlock, validateWithdrawHash } = require('./libraries/celokit');
 
 const kit = getContractKit();
 const jenga = require('./libraries/jengakit');

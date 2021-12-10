@@ -48,13 +48,12 @@ describe('API_V2', () => {
     });
   });
 
-  //let's set up the data we need to pass to the login method
   const userCredentials = {
         phoneNumber: "+254721234567",
         countryCode: "KE",
         password: "fsydhjashdfjksuYSzzDA3FUa88u4sP"
     };
-    //now let's login the user before we run any tests
+  
     var authenticatedUser = request.agent(server);
     before(function(done){
         authenticatedUser

@@ -18,7 +18,7 @@ describe('API_V2', () => {
             "lastname": "Smith",
             "organization": "Kotani Pay",
             "emailAddress": "test@kotanipay.com",
-            "password" : "fsydhjashdfjksuYSzzDA3FUa88u4sP",
+            "password" : "some_very_strong_password",
             "permissionLevel": "admin",
             "countryCode": "KE",
             "targetCountry" : "KE",

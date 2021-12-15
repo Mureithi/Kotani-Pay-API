@@ -14,8 +14,8 @@ describe('API_V2', () => {
   describe("POST /auth/signup", () => {
     it("It should return an ok if signup is successful", (done) => {
         const credentials = {
-            "firstname": "Steve",
-            "lastname": "Kiarie",
+            "firstname": "John",
+            "lastname": "Smith",
             "organization": "Kotani Pay",
             "emailAddress": "test@kotanipay.com",
             "password" : "fsydhjashdfjksuYSzzDA3FUa88u4sP",
@@ -39,14 +39,14 @@ describe('API_V2', () => {
 
   describe("POST /api/login", () => {
     it("It should return an accessToken", (done) => {
-        const credentials = {
-            phoneNumber: "+254721234567",
-            countryCode: "KE",
-            password: "fsydhjashdfjksuYSzzDA3FUa88u4sP"
+        const adminCredentials = {
+            phoneNumber: {{phoneNumber}},
+            countryCode: {{countryCode}},
+            password: {{password}}
         };
         chai.request(baseUrl)                
             .post("/api/login")
-            .send(credentials)
+            .send(adminCredentials)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -60,9 +60,9 @@ describe('API_V2', () => {
     it("It should return an ok if create user is successful", (done) => {
         const userDetails = { phoneNumber: "+254722123456" };
         const adminCredentials = {
-            phoneNumber: "+254721234567",
-            countryCode: "KE",
-            password: "fsydhjashdfjksuYSzzDA3FUa88u4sP"
+            phoneNumber: {{phoneNumber}},
+            countryCode: {{countryCode}},
+            password: {{password}}
         };
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
@@ -73,7 +73,7 @@ describe('API_V2', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('userId').eq('938c89b541ff60171641f0a88c45c441553df5cb'); // 668213f2fb5a177d6ef2aabcb77f1631e4eb9780
+                    res.body.should.have.property('userId').eq('938c89b541ff60171641f0a88c45c441553df5cb');
                 done();
             });
         });        
@@ -83,12 +83,12 @@ describe('API_V2', () => {
   describe("POST /kyc/user/isverifiedcheck", () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
-        const userCredentials = {
-            phoneNumber: "+254721234567",
-            countryCode: "KE",
-            password: "fsydhjashdfjksuYSzzDA3FUa88u4sP"
+        const adminCredentials = {
+            phoneNumber: {{phoneNumber}},
+            countryCode: {{countryCode}},
+            password: {{password}}
         };
-        chai.request(baseUrl).post('/api/login').send(userCredentials)
+        chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
                 chai.request(baseUrl)                
                 .post("/kyc/user/isverifiedcheck")
@@ -107,12 +107,12 @@ describe('API_V2', () => {
   describe("POST /user/account/generateAddress", () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
-        const userCredentials = {
-            phoneNumber: "+254721234567",
-            countryCode: "KE",
-            password: "fsydhjashdfjksuYSzzDA3FUa88u4sP"
+        const adminCredentials = {
+            phoneNumber: {{phoneNumber}},
+            countryCode: {{countryCode}},
+            password: {{password}}
         };
-        chai.request(baseUrl).post('/api/login').send(userCredentials)
+        chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
                 chai.request(baseUrl)                
                 .post("/user/account/generateAddress")

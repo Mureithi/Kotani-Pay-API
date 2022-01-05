@@ -128,5 +128,29 @@ describe('API_V2', () => {
     });
   });
 
+  describe("POST /user/account/getBalance", () => {
+
+    it("It should return the user balance in local currency", (done) => {
+        const userDetails = { phoneNumber: "+254720123456" };
+        
+        chai.request(baseUrl).post('/api/login').send(adminCredentials)
+        .then(res => {
+                chai.request(baseUrl)                
+                .post("/user/account/getBalance")
+                .set('Authorization', `Bearer ${res.body.accessToken}`)
+                .send(userDetails)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('status').eq(201);
+                    res.body.should.have.property('address');
+                    res.body.should.have.property('balance');
+                    assert.equal(res.status, 200, 'the response code is not 200');
+                done();
+            });
+        });        
+    });
+  });
+
 
 });

@@ -144,9 +144,9 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
 ```
 ---
 
-### User funds-deposit:
+### User funds deposit
 ```
-https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo:
+https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo
 ```javascript
 curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/deposit/momo'
 --header 'Authorization: Bearer {{accessToken}}'
@@ -173,11 +173,11 @@ curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.ne
   { status: 400, desc: "user account is not verified" } 
 ```
 ---
+### User funds withdraw
 ```
 ---
 
 
-### User funds-withdraw:
 https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/withdraw/momo:
 ```javascript
 curl --location --request POST 'https://europe-west3-kotanimac.cloudfunctions.net/api_v2/transactions/withdraw/momo'

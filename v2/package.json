@@ -7,7 +7,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "test:unit": "mocha tests/modules/api_v2.spec.js --timeout 30000"
+    "test": "mocha tests/modules/api_v2.spec.js --timeout 30000"
   },
   "engines": {
     "node": "14"

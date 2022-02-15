@@ -60,9 +60,9 @@ describe('API_V2', () => {
     it("It should return an ok if create user is successful", (done) => {
         const userDetails = { phoneNumber: "+254722123456" };
         const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
+            phoneNumber: process.env.KOTANI_PHONENUMBER,
+            countryCode: process.env.KOTANI_COUNTRYCODE,
+            password: process.env.KOTANI_PASSWORD
         };
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
@@ -84,9 +84,9 @@ describe('API_V2', () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
         const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
+            phoneNumber: process.env.KOTANI_PHONENUMBER,
+            countryCode: process.env.KOTANI_COUNTRYCODE,
+            password: process.env.KOTANI_PASSWORD
         };
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
@@ -108,9 +108,9 @@ describe('API_V2', () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
         const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
+            phoneNumber: process.env.KOTANI_PHONENUMBER,
+            countryCode: process.env.KOTANI_COUNTRYCODE,
+            password: process.env.KOTANI_PASSWORD
         };
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {

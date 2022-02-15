@@ -40,9 +40,9 @@ describe('API_V2', () => {
   describe("POST /api/login", () => {
     it("It should return an accessToken", (done) => {
         const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
+            phoneNumber: process.env.KOTANI_PHONENUMBER,
+            countryCode: process.env.KOTANI_COUNTRYCODE,
+            password: process.env.KOTANI_PASSWORD
         };
         chai.request(baseUrl)                
             .post("/api/login")

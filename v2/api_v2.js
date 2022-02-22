@@ -282,7 +282,7 @@ api_v2.post("/kyc/user/update", authenticateToken, async (req, res) => {
       await firestore.collection('hashfiles').doc(userId).set({'enc_pin' : `${enc_loginpin}`}); 
       await addUserKycToDB(userId, kycReqData);
 
-      let message2sender = `Welcome to Kotanipay.\nYour account details have been verified.\nDial *483*354# to access the KotaniPay Ecosystem.\nUser PIN: ${newUserPin}`;
+      let message2sender = `Welcome to Kotani Pay.\nYour account details have been verified.\nDial *483*354# to access the Kotani Pay Ecosystem.\nUser PIN: ${newUserPin}`;
       sendMessage("+"+userMSISDN, message2sender);
 
       res.json({ "status": 201, "Details": `KYC completed successfully` });    
@@ -512,7 +512,7 @@ api_v2.post("/user/resetPin", authenticateToken, async (req, res) => {
       console.log('newUserPin', newUserPin)
       let enc_loginpin = await createcypher(newUserPin, userMSISDN, iv);
       await firestore.collection('hashfiles').doc(userId).update({'enc_pin' : `${enc_loginpin}`});
-      let message2sender = `Your Kotani Pay PIN has been updated.\nDial *483*354# to access the KotaniPay Ecosystem.\nNew User PIN: ${newUserPin}`;
+      let message2sender = `Your Kotani Pay PIN has been updated.\nDial *483*354# to access the Kotani Pay Ecosystem.\nNew User PIN: ${newUserPin}`;
       sendMessage("+"+userMSISDN, message2sender);
 
       res.json({ "status": 201, "desc": `${userMSISDN} Kotani Pay PIN updated successfully` });    

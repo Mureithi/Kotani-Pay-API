@@ -9,6 +9,12 @@ chai.use(chaiAsPromised).should();
 chai.use(chaiHttp);
 let agent = chai.request.agent(baseUrl);
 
+ const adminCredentials = {
+            phoneNumber: process.env.KOTANI_PHONENUMBER,
+            countryCode: process.env.KOTANI_COUNTRYCODE,
+            password: process.env.KOTANI_PASSWORD
+        };
+
 
 describe('API_V2', () => {
   describe("POST /auth/signup", () => {
@@ -39,11 +45,7 @@ describe('API_V2', () => {
 
   describe("POST /api/login", () => {
     it("It should return an accessToken", (done) => {
-        const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
-        };
+       
         chai.request(baseUrl)                
             .post("/api/login")
             .send(adminCredentials)
@@ -59,11 +61,7 @@ describe('API_V2', () => {
   describe("POST /kyc/user/create", () => {
     it("It should return an ok if create user is successful", (done) => {
         const userDetails = { phoneNumber: "+254722123456" };
-        const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
-        };
+
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
                 chai.request(baseUrl)                
@@ -83,11 +81,7 @@ describe('API_V2', () => {
   describe("POST /kyc/user/isverifiedcheck", () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
-        const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
-        };
+
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
                 chai.request(baseUrl)                
@@ -107,11 +101,7 @@ describe('API_V2', () => {
   describe("POST /user/account/generateAddress", () => {
     it("It should return false if the user is not verified", (done) => {
         const userDetails = { phoneNumber: "+254720123456" };
-        const adminCredentials = {
-            phoneNumber: {{phoneNumber}},
-            countryCode: {{countryCode}},
-            password: {{password}}
-        };
+
         chai.request(baseUrl).post('/api/login').send(adminCredentials)
         .then(res => {
                 chai.request(baseUrl)                
